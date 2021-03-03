@@ -1,6 +1,6 @@
-var client_id = "27ee4b4bb470440aaab6d8b264eb1532"; // Your client id
-var client_secret = "95ebbbaa51224e109dd72f555693be97"; // Your secret
-var redirect_uri = "http://localhost:4000/callback"; // Your redirect uri
+var client_id = "27ee4b4bb470440aaab6d8b264eb1532";
+// var client_secret = ; // Your secret
+var redirect_uri = "http://localhost:4000/callback";
 
 var express = require("express"); // Express web server framework
 var request = require("request"); // "Request" library

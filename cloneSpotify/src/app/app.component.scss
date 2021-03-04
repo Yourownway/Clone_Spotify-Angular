@@ -1,0 +1,18 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+.title {
+  text-align: center;
+}
+
+.nav {
+  width: 100vw;
+  &_ul {
+    border: solid black;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

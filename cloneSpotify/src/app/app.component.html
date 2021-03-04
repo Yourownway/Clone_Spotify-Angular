@@ -1,2 +1,10 @@
-<h1>Welcome to Spotify API</h1>
-<input type="/text" />
+<h1 class="title">Welcome to Spotify API</h1>
+<nav class="nav">
+  <ul class="nav_ul">
+    <li class="nav_li" routerLinkActive="">
+      <a routerLink="profil">Profil</a>
+    </li>
+    <li routerLinkActive=""><a routerLink="search">Search</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

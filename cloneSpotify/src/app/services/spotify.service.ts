@@ -4,13 +4,13 @@ import {
   HttpHeaders,
   HttpClientModule,
 } from '@angular/common/http';
+
 // import { Observable } from 'rxjs/Rx';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
 export class SpotifyService {
-  private my_client_id = '27ee4b4bb470440aaab6d8b264eb1532';
   private AUTH_URL = 'https://accounts.spotify.com/authorize';
   private scopes = 'user-read-private user-read-email';
   private redirect_uri = 'http://localhost:4200/home';
@@ -31,17 +31,9 @@ export class SpotifyService {
     });
     console.log('tutu');
     this.http
-      .get('http://localhost:4000/login', { headers: httpHeaders })
+      .get('http://localhost:4000/login', { responseType: 'text' })
       .subscribe(
-        (res) =>
-          console.log(
-            'https://accounts.spotify.com/authorize' +
-              '?client_id=' +
-              this.my_client_id +
-              +'&response_type=code' +
-              '&redirect_uri=' +
-              this.redirect_uri
-          ),
+        (res) => console.log(res),
         (err) => console.log(err)
       );
   }

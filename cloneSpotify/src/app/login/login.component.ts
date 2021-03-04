@@ -9,8 +9,8 @@ import { SpotifyService } from '../services/spotify.service';
 export class LoginComponent implements OnInit {
   constructor(private spotifyService: SpotifyService) {}
   gotoSpotify(): void {
-    window.open('http://localhost:4000/login');
-    console.log(location);
+    window.open('http://localhost:4000/login', '_blank');
+    console.log(window.location.href);
   }
   ngOnInit(): void {}
   onLogin() {

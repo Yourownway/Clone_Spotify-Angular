@@ -11,11 +11,11 @@ import { Output, EventEmitter } from '@angular/core';
 export class SearchComponent {
   value: string = '';
   tracks: object;
-  @Output() newItemEvent = new EventEmitter<string>();
+  @Output() sendTrack = new EventEmitter<string>();
   constructor(private spotify: SpotifyService) {}
 
-  addNewItem(value: string) {
-    this.newItemEvent.emit(value);
+  sendNewItem(value: string) {
+    this.sendTrack.emit(value);
   }
   Search() {
     if (!this.value) return;
@@ -25,5 +25,10 @@ export class SearchComponent {
         this.tracks = response['tracks']['items'];
       }
     });
+  }
+
+  selectTrack(e) {
+    console.log(e, 'event');
+    this.sendNewItem(e);
   }
 }

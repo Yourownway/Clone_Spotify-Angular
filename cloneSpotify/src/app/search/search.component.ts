@@ -13,6 +13,5 @@ export class SearchComponent {
   Search() {
     if (!this.value) return;
     this.spotify.getTrack(this.value);
-    console.log(this.value);
   }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyService } from './services/spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +6,9 @@ import { SpotifyService } from './services/spotify.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private spotifyService: SpotifyService) {}
+  userData = [];
+  albumData = [];
+  constructor() {}
 
-  ngOnInit() {
-    this.spotifyService.getUser();
-  }
+  ngOnInit() {}
 }

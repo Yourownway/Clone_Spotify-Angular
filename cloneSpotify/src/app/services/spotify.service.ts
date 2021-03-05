@@ -16,7 +16,6 @@ export class SpotifyService {
   private access_token: string = this.cookieService.get('token');
 
   getUser() {
-    // this.access_token = this.cookieService.get('token');
     console.log(this.access_token, 'tutu');
     console.log('tutu', this.access_token);
     this.http
@@ -27,7 +26,27 @@ export class SpotifyService {
         }),
       })
       .subscribe(
-        (res) => console.log(res),
+        (res) => {
+          console.log(res);
+          return res;
+        },
+        (err) => console.log(err)
+      );
+  }
+
+  getTrack(value: string) {
+    this.http
+      .get(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
+        responseType: 'json',
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + this.access_token,
+        }),
+      })
+      .subscribe(
+        (res) => {
+          console.log(res);
+          return res;
+        },
         (err) => console.log(err)
       );
   }

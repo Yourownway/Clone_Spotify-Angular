@@ -12,6 +12,7 @@ import { SpotifyService } from './services/spotify.service';
 import { RouterModule, Routes } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MaterialModules } from './material-modules';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'profil', component: ProfilComponent },
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   imports: [
     MaterialModules,
     BrowserModule,
+    FormsModule,
 
     BrowserAnimationsModule,
     MatButtonModule,

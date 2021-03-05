@@ -13,7 +13,11 @@
 </p>
 <div class="tracks">
   <div class="tracks_item" *ngFor="let track of tracks">
-    <div class="tracks_info" (click)="selectTrack(track.preview_url)">
+    <div
+      *ngIf="track.preview_url"
+      class="tracks_info"
+      (click)="selectTrack(track.preview_url)"
+    >
       <h3>{{ track.name }}</h3>
       <h3>{{ track.artists[0].name }}</h3>
       <img class="tracks_image" src="{{ track.album.images[2].url }}" />

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   play() {
-    console.log(this.sound, 'tutu');
     this.sound.play();
   }
   pause() {

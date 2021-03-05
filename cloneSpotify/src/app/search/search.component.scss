@@ -9,6 +9,10 @@
   margin: auto;
   &_item {
     padding: 4%;
+    cursor: pointer;
+    &:hover {
+      border: solid;
+    }
   }
   &_info {
     display: flex;

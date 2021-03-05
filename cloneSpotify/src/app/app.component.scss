@@ -22,6 +22,10 @@ header {
   }
   &_btn {
     width: 20px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 }
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SpotifyService } from '../services/spotify.service';
-
-import { Output, EventEmitter } from '@angular/core';
+import { SharedService } from '../services/shared-service';
 
 @Component({
   selector: 'app-search',
@@ -11,12 +10,12 @@ import { Output, EventEmitter } from '@angular/core';
 export class SearchComponent {
   value: string = '';
   tracks: object;
-  @Output() sendTrack = new EventEmitter<string>();
-  constructor(private spotify: SpotifyService) {}
 
-  sendNewItem(value: string) {
-    this.sendTrack.emit(value);
-  }
+  constructor(
+    private spotify: SpotifyService,
+    private sharedService: SharedService
+  ) {}
+
   Search() {
     if (!this.value) return;
     this.spotify.getTrack(this.value).subscribe((response) => {
@@ -28,7 +27,6 @@ export class SearchComponent {
   }
 
   selectTrack(e) {
-    console.log(e, 'event');
-    this.sendNewItem(e);
+    this.sharedService.emitChange(e);
   }
 }

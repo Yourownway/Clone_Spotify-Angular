@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Howl } from 'howler';
+import { SharedService } from './services/shared-service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,17 +8,27 @@ import { Howl } from 'howler';
 })
 export class AppComponent implements OnInit {
   song: string;
-  sound = new Howl({
-    src: ['http://server8.mp3quran.net/ahmad_huth/001.mp3'],
-    html5: true,
-  });
-  constructor() {}
+  sound: any;
+  constructor(private sharedService: SharedService) {
+    sharedService.changeEmitted$.subscribe((response) => {
+      this.song = response;
+
+      this.sound = new Howl({
+        src: [this.song],
+        html5: true,
+        format: ['audio/mpeg', 'audio/aacp'],
+      });
+      console.log(typeof this.sound, 'typeof');
+    });
+  }
 
   ngOnInit() {}
 
-  addItem(newItem: string) {
-    this.song;
+  play() {
+    console.log(this.sound, 'tutu');
+    this.sound.play();
   }
-  play() {}
-  pause() {}
+  pause() {
+    this.sound.pause();
+  }
 }

@@ -9,10 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { ProfilComponent } from './profil/profil.component';
 import { SpotifyService } from './services/spotify.service';
+
 import { RouterModule, Routes } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MaterialModules } from './material-modules';
 import { FormsModule } from '@angular/forms';
+import { SharedService } from './services/shared-service';
 
 const appRoutes: Routes = [
   { path: 'profil', component: ProfilComponent },
@@ -33,7 +35,7 @@ const appRoutes: Routes = [
 
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [SpotifyService, CookieService],
+  providers: [SpotifyService, CookieService, SharedService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

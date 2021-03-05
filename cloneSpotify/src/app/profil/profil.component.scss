@@ -8,3 +8,14 @@
     width: 100px;
   }
 }
+.albums {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &_item {
+    padding: 1%;
+  }
+}

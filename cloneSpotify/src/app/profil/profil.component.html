@@ -5,10 +5,12 @@
 <div *ngIf="albumData.length > 0" class="album">
   <h3 class="album_title center">Vos Album favoris</h3>
 
-  <div *ngFor="let album of albumData">
-    <h1>{{ album.album.name }}</h1>
+  <div class="albums">
+    <div class="albums_item" *ngFor="let album of albumData">
+      <h1>{{ album.album.name }}</h1>
 
-    <img src="{{ album.album.images[1].url }}" />
-    <h2>{{ album.album.artists[0].name }}</h2>
+      <img src="{{ album.album.images[1].url }}" />
+      <h2>{{ album.album.artists[0].name }}</h2>
+    </div>
   </div>
 </div>

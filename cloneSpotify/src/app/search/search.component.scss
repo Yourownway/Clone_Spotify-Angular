@@ -1,3 +1,24 @@
 .search {
   text-align: center;
 }
+
+.tracks {
+  display: flex;
+
+  flex-direction: column;
+  margin: auto;
+  &_item {
+    padding: 4%;
+  }
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    align-items: center;
+  }
+  &_image {
+    display: flex;
+    justify-self: flex-end;
+  }
+}

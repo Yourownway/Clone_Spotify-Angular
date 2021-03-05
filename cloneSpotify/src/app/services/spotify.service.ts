@@ -24,20 +24,15 @@ export class SpotifyService {
   }
 
   getTrack(value: string) {
-    return this.http
-      .get(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
+    return this.http.get(
+      `https://api.spotify.com/v1/search?q=${value}&type=track`,
+      {
         responseType: 'json',
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + this.access_token,
         }),
-      })
-      .subscribe(
-        (res) => {
-          console.log(res);
-          return res;
-        },
-        (err) => console.log(err)
-      );
+      }
+    );
   }
 
   getUserAlbum() {

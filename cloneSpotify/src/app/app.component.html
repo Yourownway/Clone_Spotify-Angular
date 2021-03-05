@@ -1,6 +1,28 @@
 <header>
-  <h1 class="title">Welcome to Spotify API</h1>
-  <img class="logo" src="../assets/spotify-logo.png" />
+  <div class="title">
+    <h1>Welcome to Spotify API</h1>
+    <img class="logo" src="../assets/spotify-logo.png" alt="spotify logo" />
+  </div>
+  <div class="player">
+    <div>
+      <img
+        class="player_btn"
+        src="../assets/play.png"
+        alt="play"
+        (click)="(play)"
+      />
+      <p>play</p>
+    </div>
+    <div>
+      <img
+        class="player_btn"
+        src="../assets/pause.png"
+        alt="pause"
+        (click)="(pause)"
+      />
+      <p>pause</p>
+    </div>
+  </div>
 </header>
 <nav class="nav">
   <ul class="nav_ul">

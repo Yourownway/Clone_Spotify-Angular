@@ -1,10 +1,28 @@
 header {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .title {
-  text-align: center;
-  padding-top: 4px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.player {
+  display: flex;
+  border: solid black;
+  justify-content: space-evenly;
+  padding-top: 20px;
+
+  width: 100px;
+  margin: auto;
+
+  & p {
+    font-size: 0.6rem;
+  }
+  &_btn {
+    width: 20px;
+  }
 }
 
 .nav {

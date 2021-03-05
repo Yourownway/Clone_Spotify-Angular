@@ -3,7 +3,7 @@
     <mat-label>search</mat-label>
     <input
       matInput
-      placeholder="Track"
+      placeholder="Track, Artist"
       type="text"
       [(ngModel)]="value"
       (input)="Search()"
@@ -12,7 +12,11 @@
   </mat-form-field>
 </p>
 <div class="tracks">
-  <div class="tracks_item" *ngFor="let track of tracks">
+  <div
+    (click)="addNewItem(newItem.value)"
+    class="tracks_item"
+    *ngFor="let track of tracks"
+  >
     <div class="tracks_info">
       <h3>{{ track.name }}</h3>
       <h3>{{ track.artists[0].name }}</h3>

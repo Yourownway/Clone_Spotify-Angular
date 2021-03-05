@@ -5,8 +5,7 @@ import {
   HttpClientModule,
 } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -25,7 +24,7 @@ export class SpotifyService {
   }
 
   getTrack(value: string) {
-    this.http
+    return this.http
       .get(`https://api.spotify.com/v1/search?q=${value}&type=track`, {
         responseType: 'json',
         headers: new HttpHeaders({
@@ -42,18 +41,11 @@ export class SpotifyService {
   }
 
   getUserAlbum() {
-    this.http
-      .get('https://api.spotify.com/v1/me/albums?market=FR', {
-        responseType: 'json',
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + this.access_token,
-        }),
-      })
-      .subscribe(
-        (res) => {
-          return res;
-        },
-        (err) => console.log(err)
-      );
+    return this.http.get('https://api.spotify.com/v1/me/albums?market=FR', {
+      responseType: 'json',
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + this.access_token,
+      }),
+    });
   }
 }

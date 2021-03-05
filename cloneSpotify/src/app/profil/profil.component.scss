@@ -1,0 +1,10 @@
+.profil {
+  display: flex;
+  justify-content: space-evenly;
+  &_title {
+    align-self: center;
+  }
+  &_image {
+    width: 100px;
+  }
+}

@@ -7,10 +7,11 @@ import { SpotifyService } from '../services/spotify.service';
   styleUrls: ['./profil.component.scss'],
 })
 export class ProfilComponent implements OnInit {
-  albumData = [];
   userData: Object = { email: '' };
   email: string;
   name: string;
+  image: string;
+  albumData: any[];
   constructor(private spotifyService: SpotifyService) {}
 
   ngOnInit() {
@@ -18,9 +19,13 @@ export class ProfilComponent implements OnInit {
       console.log(response, 'response');
       if (response) {
         this.email = response.email;
-        this.name = response.name;
+        this.name = response.display_name;
+        this.image = response.images[0].url;
       }
     });
-    console.log(this.userData, 'userData');
+    this.spotifyService.getUserAlbum().subscribe((response: any) => {
+      this.albumData = response.items;
+      console.log(this.albumData, 'albumData');
+    });
   }
 }
